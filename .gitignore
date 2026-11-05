@@ -1,0 +1,10 @@
+*.bin
+*.safetensors
+*.pt
+*.gguf
+models/
+.env
+*.pem
+*.key
+__pycache__/
+.venv/
