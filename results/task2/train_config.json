@@ -1,0 +1,12 @@
+{
+  "base_model": "EleutherAI/pythia-70m",
+  "data": "data/v1/train1500.jsonl",
+  "n_train": 1500,
+  "epochs": 3,
+  "batch_size": 8,
+  "lr": 5e-05,
+  "max_len": 512,
+  "seed": 42,
+  "torch": "2.15.0+cu132",
+  "device": "cuda"
+}
