@@ -1,0 +1,7 @@
+NAME                        STATUS     COMPLETIONS   DURATION   AGE
+job.batch/teacher-shard-0   Complete   1/1           54m        82m
+job.batch/teacher-shard-1   Complete   1/1           54m        82m
+
+NAME                        READY   STATUS      RESTARTS   AGE
+pod/teacher-shard-0-754qw   0/1     Completed   0          82m
+pod/teacher-shard-1-7hvrp   0/1     Completed   0          82m

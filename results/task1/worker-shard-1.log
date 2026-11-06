@@ -1,0 +1,17 @@
+shard 1/2: 1500 of 3000 commands
+shard 1: 100/1500 done
+shard 1: 200/1500 done
+shard 1: 300/1500 done
+shard 1: 400/1500 done
+shard 1: 500/1500 done
+shard 1: 600/1500 done
+shard 1: 700/1500 done
+shard 1: 800/1500 done
+shard 1: 900/1500 done
+shard 1: 1000/1500 done
+shard 1: 1100/1500 done
+shard 1: 1200/1500 done
+shard 1: 1300/1500 done
+shard 1: 1400/1500 done
+shard 1: 1500/1500 done
+shard 1: wrote s3://datasets/teacher/shard-1.jsonl (1500 records)
