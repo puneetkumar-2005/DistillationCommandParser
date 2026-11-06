@@ -1,0 +1,12 @@
+validation examples: 100
+V001: {"intent": "calendar_remove", "date": "upcoming", "time": null, "place": null}
+V002: {"intent": "alarm_set", "date": "sunday", "time": "five in the morning", "place": null}
+V003: {"intent": "datetime_query", "date": null, "time": "right now", "place": "washington"}
+V004: {"intent": "datetime_query", "date": "monday", "time": null, "place": null}
+V005: {"intent": "alarm_set", "date": "tuesday", "time": "six pm", "place": null}
+20/100 done
+40/100 done
+60/100 done
+80/100 done
+100/100 done
+wrote results/task2/teacher_predictions.jsonl

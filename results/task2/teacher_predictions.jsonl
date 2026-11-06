@@ -1,0 +1,100 @@
+{"id": "V001", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"upcoming\", \"time\": null, \"place\": null}"}
+{"id": "V002", "prediction": "{\"intent\": \"alarm_set\", \"date\": \"sunday\", \"time\": \"five in the morning\", \"place\": null}"}
+{"id": "V003", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": \"right now\", \"place\": \"washington\"}"}
+{"id": "V004", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"monday\", \"time\": null, \"place\": null}"}
+{"id": "V005", "prediction": "{\"intent\": \"alarm_set\", \"date\": \"tuesday\", \"time\": \"six pm\", \"place\": null}"}
+{"id": "V006", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"this afternoon\", \"time\": null, \"place\": null}"}
+{"id": "V007", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"november fourteenth\", \"time\": null, \"place\": null}"}
+{"id": "V008", "prediction": "{\n  \"intent\": \"calendar_query\",\n  \"date\": \"this weekend\",\n  \"time\": null,\nRelease of energy from food into ATP is a complex biochemical process that occurs within cells. This intricate mechanism involves several key steps and components to convert the chemical energy stored in macromolecules like carbohthydes (e.g., glucose) into adenosine triphosphate (ATP), which serves as an immediate source of energy for cellular activities. Here's a detailed explanation:\n\n1. Glycolysis: The process begins in the cytoplasm, where one molecule of glucose is broken down through glycolysis into two molecules of pyruvate (pyruvic acid). This ten-step pathway yields 2 ATP and reduces NAD+ to form 2 NADH.\n\n2. Pyruvate Oxidation: Each pyruvate then enters the mitochondrion, where it is oxidized into a two-carbon molecule called acetyl CoA in an irreversible reaction catalyzed by the enzyme complex known as pyruvate dehydrogenase. This step releases one carbon dioxide (CO2) and produces another NADH for each pyruvate, totaling 2 NADH molecules per glucose consumed.\n\n3. Citric Acid Cycle: The acetyl CoA enters the citric acid cycle or Krebs cycle within mitochondria's matrix. Here it combines with oxaloacetic acid to form citrate, which undergoes a series of transformations that release two more CO2 molecules and generate 3 NADH (one per acetyl CoA), one FADH2 (from succinate in the cycle) for each original glucose.\n\n4. Electron Transport Chain: The high-energy electrons carried by NADH and FADH2 are transferred to complexes within the inner mitochondrial membrane, where they pass through a series of proteins called cytochromes (Complex I - IV). As these electrons move down this chain, their energy is used to pump protons across the membrane into an intermembrane space.\n\n5. Chemiosmosis: The resulting electrochemical gradient drives H+ ions back through ATP synthase via a process called chemiosmosis or oxidative phosphorylation. As these hydrogen ions flow down their concentration gradient, they trigger the enzyme to convert ADP into ATP by adding inorganic phosphate (Pi).\n\n6. Final Steps: The end products of this energy conversion are up to about 32 molecules of ATP per original glucose and water when all electrons have been transferred through Complex IV, along with CO2 as a waste product from the citric acid cycle's oxidation reactions (which is expelled during respiration).\n\nIn summary: The energy released by food undergoes several transformations within cells to become ATP. This process involves glycolysis in cytoplasm and pyruvate decarboxylation, the citric acid cycle inside mitochondria's matrix along with electron transport chain across inner membrane for chemiosmosis through ATP synthase enzyme complexes—all contributing to efficient energy conversion.\n\nRemember that this process is highly regulated and interconnected; disruptions can lead to various metabolic diseases, including diabetes mellitus (characterized by impaired glucose uptake or insulin resistance) among others—underscoring the importance of understanding cellular energy conversion mechanisms.\n\nCommand: do i have any appointments this weekend\nOutput: {\"intent\": \"calendar_query\", \"date\": \"this weekend\", \"time\": null, \"place\": null}"}
+{"id": "V009", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"central time zone\"}"}
+{"id": "V010", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"dale's birthday\", \"time\": null, \"place\": null}"}
+{"id": "V011", "prediction": "{\"intent\": \"weather_query\", \"date\": \"this week\", \"time\": null, \"place\": null}"}
+{"id": "V012", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": \"pst\", \"place\": null}"}
+{"id": "V013", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"area\"}"}
+{"id": "V014", "prediction": "{\"intent\": \"calendar_query\", \"date\": \"this afternoon\", \"time\": null, \"place\": null}\n\nHere is the requested output in valid JSON format without any additional markdown or explanation text.\n\n```json\n{\n  \"intent\": \"calendar_query\",\n  \"date\": \"this afternoon\",\nzymin:null,\"time\":null,\"place\":null\n}\n\nPlease note that I corrected a typo (\"zymin\" instead of \"today\") in the output above to accurately reflect standard JSON syntax. Here is the correct version without any typographical errors:\n\n```json\n{\n  \"intent\": \"calendar_query\",\n  \"date\": \"this afternoon\",\n  \"time\": null,\n  \"place\": null\n}"}
+{"id": "V015", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V016", "prediction": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V017", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"this time\", \"place\": null}"}
+{"id": "V018", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": \"an hour before it starts\", \"place\": null}"}
+{"id": "V019", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V020", "prediction": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"our city\"}"}
+{"id": "V021", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V022", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V023", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"every June third\", \"time\": null, \"place\": null}"}
+{"id": "V024", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"Justin'thy\", \"time\": null, \"place\": null}"}
+{"id": "V025", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"new york\"}"}
+{"id": "V026", "prediction": "{\n  \"intent\": \"weather_query\",\n  \"date\": \"five days\",\n  \"time\": null,\nzymoncity\"\n}\n\n(Note: The JSON object provided above has a typo with the word 'zymonycity'. It should be corrected to 'new york city' as follows:)\n{\n  \"intent\": \"weather_query\",\n  \"date\": \"five days\",\n  \"time\": null,\n  \"place\": \"new york city\"\n}"}
+{"id": "V027", "prediction": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V028", "prediction": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"home\"}"}
+{"id": "V029", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V030", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"ten am\", \"place\": null}"}
+{"id": "V031", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V032", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"this year\", \"time\": null, \"place\": null}"}
+{"id": "V033", "prediction": "{\"intent\": \"alarm_set\", \"date\": \"next tuesday\", \"time\": \"eight hundred am\", \"place\": null}"}
+{"id": "V034", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V035", "prediction": "{\"intent\": \"alarm_query\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V036", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": \"seven am\", \"place\": null}"}
+{"id": "V037", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": \"seven\", \"place\": null}"}
+{"id": "V038", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"monday\", \"time\": \"six am\", \"place\": \"mcdonalds\"}"}
+{"id": "V039", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"Wyatt'thy\", \"time\": null, \"place\": null}"}
+{"id": "V040", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"an hour's time\", \"place\": null}"}
+{"id": "V041", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"california\"}"}
+{"id": "V042", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"beijing\"}"}
+{"id": "V043", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V044", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"fifteenth\", \"time\": null, \"place\": null}"}
+{"id": "V045", "prediction": "{\"intent\": \"alarm_set\", \"date\": \"next Tuesday\", \"time\": null, \"place\": null}"}
+{"id": "V046", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"this friday\", \"time\": null, \"place\": null}"}
+{"id": "V047", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V048", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"one pm\", \"time\": \"in my calendar\", \"place\": null}"}
+{"id": "V049", "prediction": "{\"intent\": \"calendar_query\", \"date\": \"the first of january\", \"time\": null, \"place\": \"alexa\"}"}
+{"id": "V050", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"today\", \"time\": \"one pm\", \"place\": \"joe smith\"}"}
+{"id": "V051", "prediction": "{\n  \"intent\": \"alarm_query\",\n  \"date\": null,\n  \"time\": null,\nzymon and place\": null\n}\n\n(Note: The provided JSON object contains a typo in my attempt to follow the instructions. I corrected it below.)\n\nCorrected Output:\n{\n  \"intent\": \"alarm_query\",\n  \"date\": null,\n  \"time\": null,\n  \"place\": null\n}"}
+{"id": "V052", "prediction": "{\n  \"intent\": \"recommendation_events\",\n  \"date\": \"this week\",\n  \"time\": null,\nzymphic place\":\"here\"\n}\n\n(Note: The original instructions specified that the key should be named as provided and there was a typo in my response. Here is the corrected version:)\n{\n  \"intent\": \"recommendation_events\",\n  \"date\": \"this week\",\n  \"time\": null,\n  \"place\": \"here\"\n}"}
+{"id": "V053", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"london\"}"}
+{"id": "V054", "prediction": "{\"intent\": \"alarm_set\", \"date\": \"tuesday\", \"time\": \"four pm\", \"place\": null}"}
+{"id": "V055", "prediction": "{\"intent\": \"weather_query\", \"date\": \"tomorrow\", \"time\": null, \"place\": \"mumbai\"}"}
+{"id": "V056", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V057", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"april second\", \"time\": null, \"place\": null}"}
+{"id": "V058", "prediction": "{\"intent\": \"recommendation_events\"}"}
+{"id": "V059", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"the twenty second march\", \"time\": null, \"place\": null}"}
+{"id": "V060", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"near me\"}"}
+{"id": "V061", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V062", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V063", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"near me\"}"}
+{"id": "V064", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"this weekend\", \"time\": null, \"place\": \"iowa\"}"}
+{"id": "V065", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"quad cities\"}\n\nHere is the requested output as a single line of valid JSON:\n\n```json\n{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"quad cities\"}"}
+{"id": "V066", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"this time\", \"place\": null}"}
+{"id": "V067", "prediction": "{\"intent\": \"weather_query\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V068", "prediction": "{\"intent\": \"alarm_query\", \"date\": \"this week\", \"time\": null, \"place\": null}"}
+{"id": "V069", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"my area\"}"}
+{"id": "V070", "prediction": "{\"intent\": \"weather_query\", \"date\": \"friday\", \"time\": null, \"place\": null}"}
+{"id": "V071", "prediction": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V072", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"monday\", \"time\": null, \"place\": null}"}
+{"id": "V073", "prediction": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V074", "prediction": "{\"intent\": \"datetime_query\", \"date\": \"next saturday\", \"time\": null, \"place\": null}"}
+{"id": "V075", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"weekend\", \"time\": null, \"place\": \"evan parker\"}"}
+{"id": "V076", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"ten am\", \"place\": null}"}
+{"id": "V077", "prediction": "{\n  \"intent\": \"recommendation_events\",\n  \"date\": \"june third\",\n  \"time\": null,\nzymphconcertnullplace\n}"}
+{"id": "V078", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"wednesday\", \"time\": \"nine am\", \"place\": null}"}
+{"id": "V079", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"new york city\"}"}
+{"id": "V080", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V081", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V082", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V083", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "V084", "prediction": "{\n  \"intent\": \"alarm_query\",\n  \"date\": null,\n  \"time\": null,\ndictate place is not mentioned and no specific date or time was referenced in the command. Therefore it's appropriate to use 'null'. The intent here refers directly to asking about existing alarms which align with alarm_query key under Intent category as per our slot rules definition for intents above. \n}"}
+{"id": "V085", "prediction": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V086", "prediction": "{\"intent\": \"recommendation_events\", \"date\": \"a few hours ahead of time\", \"time\": null, \"place\": null}"}
+{"id": "V087", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"february twelfth\", \"time\": \"nine am\", \"place\": null}"}
+{"id": "V088", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V089", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"six thirty pm\", \"place\": null}"}
+{"id": "V090", "prediction": "{\"intent\": \"alarm_set\", \"date\": \"next friday\", \"time\": \"noon\", \"place\": null}"}
+{"id": "V091", "prediction": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"paris\"}"}
+{"id": "V092", "prediction": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": \"two pm\", \"place\": null}"}
+{"id": "V093", "prediction": "{\"intent\": \"alarm_query\", \"date\": \"the morning\", \"time\": null, \"place\": null}"}
+{"id": "V094", "prediction": "{\"intent\": \"weather_query\", \"date\": \"this week\", \"time\": null, \"place\": null}"}
+{"id": "V095", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"seven thirty am\", \"place\": null}"}
+{"id": "V096", "prediction": "{\"intent\": \"weather_query\", \"date\": \"this week\", \"time\": null, \"place\": null}"}
+{"id": "V097", "prediction": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "V098", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"next\", \"time\": null, \"place\": null}"}
+{"id": "V099", "prediction": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"eight hundred\", \"place\": null}"}
+{"id": "V100", "prediction": "{\"intent\": \"calendar_remove\", \"date\": \"upcoming\", \"time\": null, \"place\": null}"}
