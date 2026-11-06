@@ -1,0 +1,8 @@
+v1/config.json  782 bytes
+v1/generation_config.json  132 bytes
+v1/model.safetensors  281715176 bytes
+v1/model.sha256  65 bytes
+v1/student-v1.zip  226845393 bytes
+v1/tokenizer.json  3564298 bytes
+v1/tokenizer_config.json  378 bytes
+v1/train_config.json  227 bytes
