@@ -1,0 +1,42 @@
+device: cuda
+torch 2.15.0+cu132
+config: training/config_v2.yaml subset: 0 out: models/student-v2 loss: training/loss_v2.csv
+loaded 1500 examples, skipped 0 (too long or bad JSON)
+tokens: avg 489.4 max 511
+Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 1724.13it/s]
+steps: 564 (188 per epoch, 3 epochs)
+step 20/564 epoch 1 loss 0.2888 lr 5.00e-05 elapsed 25s
+step 40/564 epoch 1 loss 0.3091 lr 4.98e-05 elapsed 48s
+step 60/564 epoch 1 loss 0.1266 lr 4.93e-05 elapsed 73s
+step 80/564 epoch 1 loss 0.2974 lr 4.85e-05 elapsed 97s
+step 100/564 epoch 1 loss 0.2394 lr 4.74e-05 elapsed 121s
+step 120/564 epoch 1 loss 0.0787 lr 4.59e-05 elapsed 147s
+step 140/564 epoch 1 loss 0.0931 lr 4.42e-05 elapsed 170s
+step 160/564 epoch 1 loss 0.2793 lr 4.23e-05 elapsed 195s
+step 180/564 epoch 1 loss 0.0879 lr 4.01e-05 elapsed 218s
+epoch 1 done, avg loss 0.2726
+step 200/564 epoch 2 loss 0.0718 lr 3.77e-05 elapsed 240s
+step 220/564 epoch 2 loss 0.0408 lr 3.51e-05 elapsed 267s
+step 240/564 epoch 2 loss 0.0563 lr 3.24e-05 elapsed 289s
+step 260/564 epoch 2 loss 0.0890 lr 2.96e-05 elapsed 313s
+step 280/564 epoch 2 loss 0.0418 lr 2.67e-05 elapsed 336s
+step 300/564 epoch 2 loss 0.1541 lr 2.38e-05 elapsed 360s
+step 320/564 epoch 2 loss 0.1117 lr 2.10e-05 elapsed 385s
+step 340/564 epoch 2 loss 0.1165 lr 1.82e-05 elapsed 407s
+step 360/564 epoch 2 loss 0.0292 lr 1.54e-05 elapsed 433s
+epoch 2 done, avg loss 0.0940
+step 380/564 epoch 3 loss 0.0254 lr 1.28e-05 elapsed 455s
+step 400/564 epoch 3 loss 0.0528 lr 1.04e-05 elapsed 478s
+step 420/564 epoch 3 loss 0.0109 lr 8.16e-06 elapsed 501s
+step 440/564 epoch 3 loss 0.0819 lr 6.14e-06 elapsed 527s
+step 460/564 epoch 3 loss 0.0716 lr 4.38e-06 elapsed 553s
+step 480/564 epoch 3 loss 0.0152 lr 2.88e-06 elapsed 574s
+step 500/564 epoch 3 loss 0.0159 lr 1.69e-06 elapsed 598s
+step 520/564 epoch 3 loss 0.0499 lr 8.03e-07 elapsed 620s
+step 540/564 epoch 3 loss 0.0261 lr 2.40e-07 elapsed 645s
+step 560/564 epoch 3 loss 0.0074 lr 6.67e-09 elapsed 667s
+epoch 3 done, avg loss 0.0382
+training done in 672s, final avg loss 0.0382
+loss written to training/loss_v2.csv
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.10s/it]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.10s/it]
+saved model to models/student-v2
