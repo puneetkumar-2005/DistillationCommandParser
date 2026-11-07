@@ -1,0 +1,9 @@
+{
+  "per_replica": {
+    "parser-79dc8488f-5bdhq": 110,
+    "parser-79dc8488f-qmbwd": 63
+  },
+  "per_model_version": {
+    "v1": 173
+  }
+}

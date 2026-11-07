@@ -1,0 +1,2 @@
+NAME                     CPU(cores)   MEMORY(bytes)   
+parser-d8f47f77c-qgzxt   1000m        616Mi           

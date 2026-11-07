@@ -1,0 +1,2 @@
+NAME     REFERENCE           TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+parser   Deployment/parser   cpu: 200%/70%   1         2         2          89m

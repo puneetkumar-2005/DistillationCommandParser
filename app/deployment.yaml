@@ -13,10 +13,15 @@ spec:
       labels:
         app: parser
     spec:
+      terminationGracePeriodSeconds: 45
       containers:
         - name: parser
           image: parser-service:v1
           imagePullPolicy: IfNotPresent
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "15"]
           ports:
             - containerPort: 8000
           env:

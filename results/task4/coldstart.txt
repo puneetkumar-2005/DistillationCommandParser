@@ -1,0 +1,30 @@
+=== cold start run 1 ===
+run 1 ready in 33s
+downloaded s3://models/v1/config.json -> /tmp/model/config.json
+downloaded s3://models/v1/generation_config.json -> /tmp/model/generation_config.json
+downloaded s3://models/v1/model.safetensors -> /tmp/model/model.safetensors
+downloaded s3://models/v1/model.sha256 -> /tmp/model/model.sha256
+downloaded s3://models/v1/student-v1.zip -> /tmp/model/student-v1.zip
+downloaded s3://models/v1/tokenizer.json -> /tmp/model/tokenizer.json
+downloaded s3://models/v1/tokenizer_config.json -> /tmp/model/tokenizer_config.json
+downloaded s3://models/v1/train_config.json -> /tmp/model/train_config.json
+=== cold start run 2 ===
+run 2 ready in 33s
+downloaded s3://models/v1/config.json -> /tmp/model/config.json
+downloaded s3://models/v1/generation_config.json -> /tmp/model/generation_config.json
+downloaded s3://models/v1/model.safetensors -> /tmp/model/model.safetensors
+downloaded s3://models/v1/model.sha256 -> /tmp/model/model.sha256
+downloaded s3://models/v1/student-v1.zip -> /tmp/model/student-v1.zip
+downloaded s3://models/v1/tokenizer.json -> /tmp/model/tokenizer.json
+downloaded s3://models/v1/tokenizer_config.json -> /tmp/model/tokenizer_config.json
+downloaded s3://models/v1/train_config.json -> /tmp/model/train_config.json
+=== cold start run 3 ===
+run 3 ready in 33s
+downloaded s3://models/v1/config.json -> /tmp/model/config.json
+downloaded s3://models/v1/generation_config.json -> /tmp/model/generation_config.json
+downloaded s3://models/v1/model.safetensors -> /tmp/model/model.safetensors
+downloaded s3://models/v1/model.sha256 -> /tmp/model/model.sha256
+downloaded s3://models/v1/student-v1.zip -> /tmp/model/student-v1.zip
+downloaded s3://models/v1/tokenizer.json -> /tmp/model/tokenizer.json
+downloaded s3://models/v1/tokenizer_config.json -> /tmp/model/tokenizer_config.json
+downloaded s3://models/v1/train_config.json -> /tmp/model/train_config.json
