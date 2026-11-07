@@ -1,0 +1,16 @@
+# Task 2 training config. make train reads only this file.
+model: EleutherAI/pythia-70m
+data: data/v1/train1500.jsonl
+prompt: prompts/teacher_prompt.txt
+out: models/student-v2
+seed: 43
+learning_rate: 0.00005
+batch_size: 8
+epochs: 3
+max_len: 512
+torch: 2.15.0+cu132
+transformers: 5.22.2
+accelerate: 1.15.0
+python: 3.14
+device: cpu
+loss_csv: training/loss_v2.csv
