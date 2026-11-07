@@ -5,8 +5,15 @@ teacher prompt + command, with the teacher's JSON as the target.
 Loss is only on the target tokens (prompt tokens are masked -100).
 
 Usage:
-  python train/train.py --data data/v1/train1500.jsonl \
-      --prompt prompts/teacher_prompt.txt --out models/student-v1
+  make train
+  make train SUBSET=50
+  python train/train.py --config training/config.yaml --subset 50
+
+All hyperparameters come from training/config.yaml; command-line flags
+only override them. SUBSET=N trains on the first N records only, and
+saves to models/student-v1-subsetN so it never overwrites models/student-v1.
+Loss per epoch is written to training/loss.csv (or
+training/loss_subsetN.csv for a subset run).
 
 Data: only data/v1/train1500.jsonl (first 1,500 cleaned records).
 Never train on student_kit/data/validation.jsonl (evaluation only).
@@ -19,6 +26,7 @@ import random
 import time
 
 import torch
+import yaml
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer, get_cosine_schedule_with_warmup
 
@@ -80,96 +88,131 @@ def collate(batch, pad_id):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default="data/v1/train1500.jsonl")
-    ap.add_argument("--prompt", default="prompts/teacher_prompt.txt")
-    ap.add_argument("--out", default="models/student-v1")
-    ap.add_argument("--model", default="EleutherAI/pythia-70m")
-    ap.add_argument("--epochs", type=int, default=3)
-    ap.add_argument("--batch", type=int, default=8)
-    ap.add_argument("--lr", type=float, default=5e-5)
-    ap.add_argument("--max-len", type=int, default=512)
-    ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--config", default="training/config.yaml")
+    ap.add_argument("--data", default=None)
+    ap.add_argument("--prompt", default=None)
+    ap.add_argument("--out", default=None)
+    ap.add_argument("--model", default=None)
+    ap.add_argument("--epochs", type=int, default=None)
+    ap.add_argument("--batch", type=int, default=None)
+    ap.add_argument("--lr", type=float, default=None)
+    ap.add_argument("--max-len", type=int, default=None)
+    ap.add_argument("--seed", type=int, default=None)
+    ap.add_argument("--subset", type=int, default=0,
+                    help="train on the first N records only (0 = all)")
     args = ap.parse_args()
 
-    random.seed(args.seed)
-    torch.manual_seed(args.seed)
+    with open(args.config, encoding="utf-8") as f:
+        cfg = yaml.safe_load(f)
+    data = args.data or cfg["data"]
+    prompt_path = args.prompt or cfg["prompt"]
+    out = args.out or cfg["out"]
+    model_name = args.model or cfg["model"]
+    epochs = args.epochs if args.epochs is not None else cfg["epochs"]
+    batch = args.batch if args.batch is not None else cfg["batch_size"]
+    lr = args.lr if args.lr is not None else cfg["learning_rate"]
+    max_len = args.max_len if args.max_len is not None else cfg["max_len"]
+    seed = args.seed if args.seed is not None else cfg["seed"]
+    subset = args.subset
+    if subset > 0:
+        out = f"{out}-subset{subset}"
+        loss_path = f"training/loss_subset{subset}.csv"
+    else:
+        loss_path = cfg.get("loss_csv", "training/loss.csv")
+
+    random.seed(seed)
+    torch.manual_seed(seed)
     if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(args.seed)
+        torch.cuda.manual_seed_all(seed)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"device: {device}")
     print(f"torch {torch.__version__}")
+    print(f"config: {args.config} subset: {subset} out: {out} loss: {loss_path}")
 
-    with open(args.prompt, encoding="utf-8") as f:
+    with open(prompt_path, encoding="utf-8") as f:
         prompt_template = f.read().rstrip()
 
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     pad_id = tokenizer.pad_token_id
 
-    examples = load_examples(args.data, prompt_template, tokenizer, args.max_len)
+    examples = load_examples(data, prompt_template, tokenizer, max_len)
+    if subset > 0:
+        examples = examples[:subset]
+        print(f"subset: keeping first {len(examples)} examples")
     lengths = [len(e["input_ids"]) for e in examples]
     print(f"tokens: avg {sum(lengths) / len(lengths):.1f} max {max(lengths)}")
 
-    model = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.float32)
+    model = AutoModelForCausalLM.from_pretrained(model_name, dtype=torch.float32)
     model.config.use_cache = False
     model.to(device)
     model.train()
 
     loader = DataLoader(
-        TrainDataset(examples), batch_size=args.batch, shuffle=True,
+        TrainDataset(examples), batch_size=batch, shuffle=True,
         collate_fn=lambda b: collate(b, pad_id),
-        generator=torch.Generator().manual_seed(args.seed),
+        generator=torch.Generator().manual_seed(seed),
     )
-    total_steps = len(loader) * args.epochs
-    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.0)
+    total_steps = len(loader) * epochs
+    optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.0)
     scheduler = get_cosine_schedule_with_warmup(
         optimizer, num_warmup_steps=20, num_training_steps=total_steps)
-    print(f"steps: {total_steps} ({len(loader)} per epoch, {args.epochs} epochs)")
+    print(f"steps: {total_steps} ({len(loader)} per epoch, {epochs} epochs)")
 
     step = 0
     start = time.time()
-    for epoch in range(args.epochs):
-        total_loss = 0.0
-        for batch in loader:
-            batch = {k: v.to(device) for k, v in batch.items()}
-            out = model(**batch)
-            loss = out.loss
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-            optimizer.step()
-            scheduler.step()
-            optimizer.zero_grad(set_to_none=True)
-            step += 1
-            total_loss += loss.item()
-            if step % 20 == 0:
-                print(f"step {step}/{total_steps} epoch {epoch + 1} "
-                      f"loss {loss.item():.4f} lr {scheduler.get_last_lr()[0]:.2e} "
-                      f"elapsed {time.time() - start:.0f}s", flush=True)
-        print(f"epoch {epoch + 1} done, avg loss {total_loss / len(loader):.4f}", flush=True)
+    epoch_losses = []
+    os.makedirs(os.path.dirname(loss_path) or ".", exist_ok=True)
+    with open(loss_path, "w", encoding="utf-8") as lf:
+        lf.write("epoch,loss\n")
+        for epoch in range(epochs):
+            total_loss = 0.0
+            for batch_data in loader:
+                batch_data = {k: v.to(device) for k, v in batch_data.items()}
+                result = model(**batch_data)
+                loss = result.loss
+                loss.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                optimizer.step()
+                scheduler.step()
+                optimizer.zero_grad(set_to_none=True)
+                step += 1
+                total_loss += loss.item()
+                if step % 20 == 0:
+                    print(f"step {step}/{total_steps} epoch {epoch + 1} "
+                          f"loss {loss.item():.4f} lr {scheduler.get_last_lr()[0]:.2e} "
+                          f"elapsed {time.time() - start:.0f}s", flush=True)
+            avg_loss = total_loss / len(loader)
+            epoch_losses.append(avg_loss)
+            lf.write(f"{epoch + 1},{avg_loss:.4f}\n")
+            lf.flush()
+            print(f"epoch {epoch + 1} done, avg loss {avg_loss:.4f}", flush=True)
 
     print(f"training done in {time.time() - start:.0f}s, final avg loss "
-          f"{total_loss / len(loader):.4f}", flush=True)
+          f"{epoch_losses[-1]:.4f}", flush=True)
+    print(f"loss written to {loss_path}", flush=True)
 
-    os.makedirs(args.out, exist_ok=True)
-    model.save_pretrained(args.out)
-    tokenizer.save_pretrained(args.out)
+    os.makedirs(out, exist_ok=True)
+    model.save_pretrained(out)
+    tokenizer.save_pretrained(out)
     config = {
-        "base_model": args.model,
-        "data": args.data,
+        "base_model": model_name,
+        "data": data,
         "n_train": len(examples),
-        "epochs": args.epochs,
-        "batch_size": args.batch,
-        "lr": args.lr,
-        "max_len": args.max_len,
-        "seed": args.seed,
+        "epochs": epochs,
+        "batch_size": batch,
+        "lr": lr,
+        "max_len": max_len,
+        "seed": seed,
+        "subset": subset,
         "torch": torch.__version__,
         "device": device,
     }
-    with open(os.path.join(args.out, "train_config.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(out, "train_config.json"), "w", encoding="utf-8") as f:
         json.dump(config, f, indent=2)
-    print(f"saved model to {args.out}")
+    print(f"saved model to {out}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+python3 train/train.py --config training/config.yaml --subset 50
+device: cpu
+torch 2.15.0+cu132
+config: training/config.yaml subset: 50 out: models/student-v1-subset50 loss: training/loss_subset50.csv
+loaded 1500 examples, skipped 0 (too long or bad JSON)
+subset: keeping first 50 examples
+tokens: avg 488.5 max 500
+Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]Loading weights: 100%|██████████| 76/76 [00:00<00:00, 1211.01it/s]
+steps: 21 (7 per epoch, 3 epochs)
+epoch 1 done, avg loss 0.8380
+epoch 2 done, avg loss 0.3101
+step 20/21 epoch 3 loss 0.3568 lr 5.00e-05 elapsed 85s
+epoch 3 done, avg loss 0.2636
+training done in 86s, final avg loss 0.2636
+loss written to training/loss_subset50.csv
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  9.93it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  9.91it/s]
+saved model to models/student-v1-subset50
