@@ -28,6 +28,8 @@ jobs:
           python -m pytest tests/ -v
       - name: Secret scan
         uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download model from the GitHub Release
         run: |
           curl -L -o student-v1.zip https://github.com/puneetkumar-2005/DistillationCommandParser/releases/download/student-v1/student-v1.zip
