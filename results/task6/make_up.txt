@@ -1,0 +1,8 @@
+make up — 2026-11-08, 2m23s, exit 0
+- cluster start, docker build cached (2.6s), k3d image import OK
+- seaweedfs available; release zip 216.3M downloaded
+- S3 models/v1/: 8 objects (config.json, generation_config.json,
+  model.safetensors 281715176, model.sha256 65, student-v1.zip 226845393,
+  tokenizer.json, tokenizer_config.json, train_config.json)
+- deployment.apps/parser condition met (Available)
+- final curl POST /parse -> {"intent":"alarm_set","date":"tomorrow","time":"seven thirty am","place":null}
