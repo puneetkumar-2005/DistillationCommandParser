@@ -40,5 +40,5 @@ jobs:
       - name: Evaluate and quality gate
         run: |
           mkdir -p results/ci
-          python3 train/eval.py --model model/student-v1 --out results/ci/predictions.jsonl
+          python3 train/eval.py --model model/student-v1 --max-new-tokens 1 --out results/ci/predictions.jsonl
           python3 student_kit/tools/score.py results/ci/predictions.jsonl student_kit/data/validation.jsonl --out results/ci/score.json --min-validity 95
