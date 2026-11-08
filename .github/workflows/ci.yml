@@ -34,7 +34,9 @@ jobs:
           python3 -m zipfile -e student-v1.zip model
           ls model/student-v1/
       - name: Install eval dependencies (CPU torch)
-        run: pip install torch --index-url https://download.pytorch.org/whl/cpu transformers==5.22.2 accelerate==1.15.0
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install transformers==5.22.2 accelerate==1.15.0
       - name: Evaluate and quality gate
         run: |
           mkdir -p results/ci
