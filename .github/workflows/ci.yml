@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check .
+      - name: Unit tests
+        run: |
+          pip install pytest boto3 requests
+          python -m pytest tests/ -v
+      - name: Secret scan
+        uses: gitleaks/gitleaks-action@v2
+      - name: Download model from the GitHub Release
+        run: |
+          curl -L -o student-v1.zip https://github.com/puneetkumar-2005/DistillationCommandParser/releases/download/student-v1/student-v1.zip
+          python3 -m zipfile -e student-v1.zip model
+          ls model/student-v1/
+      - name: Install eval dependencies (CPU torch)
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu transformers==5.22.2 accelerate==1.15.0
+      - name: Evaluate and quality gate
+        run: |
+          mkdir -p results/ci
+          python3 train/eval.py --model model/student-v1 --out results/ci/predictions.jsonl
+          python3 student_kit/tools/score.py results/ci/predictions.jsonl student_kit/data/validation.jsonl --out results/ci/score.json --min-validity 95

@@ -42,7 +42,7 @@ def test_clean_counts_balance_on_one_record_per_class(tmp_path):
     result = subprocess.run(
         [sys.executable, str(ROOT / "worker" / "clean.py"),
          "--shards", str(shard), "--out", str(out), "--counts", str(counts_path)],
-        capture_output=True, text=True)
+        check=False, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     counts = json.loads(counts_path.read_text(encoding="utf-8"))
     assert counts == {"input": 6, "a_invalid_json": 1, "b_wrong_keys": 1,

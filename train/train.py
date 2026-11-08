@@ -28,7 +28,11 @@ import time
 import torch
 import yaml
 from torch.utils.data import DataLoader, Dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer, get_cosine_schedule_with_warmup
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    get_cosine_schedule_with_warmup,
+)
 
 
 def load_examples(data_path, prompt_template, tokenizer, max_len):
@@ -41,7 +45,7 @@ def load_examples(data_path, prompt_template, tokenizer, max_len):
             rec = json.loads(line)
             try:
                 target = json.loads(rec["teacher_raw"])
-            except Exception:
+            except (ValueError, TypeError):
                 skipped += 1
                 continue
             target_text = json.dumps(target, ensure_ascii=False)

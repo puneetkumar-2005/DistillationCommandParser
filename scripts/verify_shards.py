@@ -11,11 +11,13 @@ import json
 import sys
 
 pool_path, *shard_paths = sys.argv[1:]
-pool = [json.loads(ln) for ln in open(pool_path, encoding="utf-8") if ln.strip()]
+with open(pool_path, encoding="utf-8") as f:
+    pool = [json.loads(ln) for ln in f if ln.strip()]
 pool_ids = [r["id"] for r in pool]
 seen = {}
 for sp in shard_paths:
-    rows = [json.loads(ln) for ln in open(sp, encoding="utf-8") if ln.strip()]
+    with open(sp, encoding="utf-8") as f:
+        rows = [json.loads(ln) for ln in f if ln.strip()]
     for r in rows:
         seen.setdefault(r["id"], []).append(sp)
     print(f"{sp}: {len(rows)} records")

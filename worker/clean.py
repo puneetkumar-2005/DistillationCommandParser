@@ -59,7 +59,7 @@ def main():
             obj = json.loads(raw.strip()) if isinstance(raw, str) else None
             if obj is None:
                 raise ValueError("teacher_raw is not a JSON string")
-        except Exception:
+        except (ValueError, TypeError):
             counts["a_invalid_json"] += 1
             continue
         if not isinstance(obj, dict) or set(obj.keys()) != KEYS:
@@ -97,7 +97,8 @@ def main():
         for rec in kept:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
-    sha = hashlib.sha256(open(args.out, "rb").read()).hexdigest()
+    with open(args.out, "rb") as f:
+        sha = hashlib.sha256(f.read()).hexdigest()
     counts_path = args.counts or (args.out + ".counts.json")
     with open(counts_path, "w", encoding="utf-8") as f:
         json.dump(counts, f, indent=2)

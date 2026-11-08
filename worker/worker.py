@@ -55,7 +55,7 @@ def call_teacher(url, model, prompt, timeout=300, retries=3):
                               json=payload, timeout=timeout)
             r.raise_for_status()
             return r.json()["response"]
-        except Exception as exc:
+        except (requests.RequestException, ValueError, KeyError) as exc:
             last = exc
             print(f"teacher call failed (attempt {attempt}/{retries}): {exc}",
                   flush=True)

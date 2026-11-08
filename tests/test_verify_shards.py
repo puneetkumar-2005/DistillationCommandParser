@@ -14,7 +14,7 @@ def run_verify(pool, *shards):
     return subprocess.run(
         [sys.executable, str(ROOT / "scripts" / "verify_shards.py"),
          str(pool)] + [str(s) for s in shards],
-        capture_output=True, text=True)
+        check=False, capture_output=True, text=True)
 
 
 def test_verify_shards_passes_on_correct_split(tmp_path):

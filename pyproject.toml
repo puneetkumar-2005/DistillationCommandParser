@@ -1,0 +1,4 @@
+# Ruff only lints our code. student_kit/ is the assignment's provided
+# code (tools, sample data); we use it as-is and do not edit it.
+[tool.ruff]
+exclude = ["student_kit"]

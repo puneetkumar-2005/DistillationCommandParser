@@ -178,7 +178,7 @@ def parse(req: ParseRequest, response: Response):
     text = extract_json(raw)
     try:
         obj = json.loads(text)
-    except Exception:
+    except (ValueError, TypeError):
         return JSONResponse({"error": "invalid_model_output"}, status_code=500)
     if not valid_output(obj):
         return JSONResponse({"error": "invalid_model_output"}, status_code=500)
