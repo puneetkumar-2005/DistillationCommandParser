@@ -1,0 +1,9 @@
+k3d cluster delete cloud-mini
+rm -f /tmp/student-v1.zip
+rm -rf /tmp/student-v1
+[36mINFO[0m[0000] Deleting cluster 'cloud-mini'                
+[36mINFO[0m[0006] Deleting cluster network 'k3d-cloud-mini'    
+[36mINFO[0m[0006] Deleting 1 attached volumes...               
+[36mINFO[0m[0007] Removing cluster details from default kubeconfig... 
+[36mINFO[0m[0007] Removing standalone kubeconfig file (if there is one)... 
+[36mINFO[0m[0007] Successfully deleted cluster cloud-mini!     
